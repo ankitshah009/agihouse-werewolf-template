@@ -242,7 +242,13 @@ Current game situation (including past thoughts and actions):
 Your thoughts:
 {inner_monologue}
 
-Based on your thoughts and the current situation, what is your {action_type}? Respond with only the {action_type} and no other sentences/thoughts. If it is a dialogue response, you can provide the full response that adds to the discussions so far. For all other cases a single sentence response is expected. If you are in the wolf-group channel, the sentence must contain the name of a person you wish to eliminate, and feel free to change your mind so that there is consensus. If you are in the game-room channel, the sentence must contain your response or vote, and it must be a vote to eliminate someone if the game moderator has recently messaged you asking for a vote, and also feel free to justify your vote, and later change your mind when the final vote count happens. You can justify any change of mind too. If the moderator for the reason behind the vote, you must provide the reason in the response."""
+Based on your thoughts and the current situation, what is your {action_type}? Respond with only the {action_type} and no other sentences/thoughts. If it is a dialogue response, \
+    you can provide the full response that adds to the discussions so far. \
+    For all other cases a single sentence response is expected. \
+    If you are in the wolf-group channel, the sentence must contain the name of a person you wish to eliminate, \
+    and feel free to change your mind so that there is consensus.
+    If you are in the game-room channel, the sentence must contain your response or vote, and it must be a vote to eliminate someone if the game moderator has recently messaged you asking for a vote, and also feel free to justify your vote, and later change your mind when the final vote count happens. \
+    You can justify any change of mind too. If the moderator for the reason behind the vote, you must provide the reason in the response."""
 
         response = self.openai_client.chat.completions.create(
             model=self.model,
@@ -378,7 +384,8 @@ Based on your thoughts, the current situation, and your reflection on the initia
         
         specific_prompt = """think through your response by answering the following step-by-step:
 1. What important information has been shared in the recent discussions?
-2. Based on the game history, who seems most suspicious or trustworthy?
+2. Based on the game history, who seems most suspicious or trustworthy. \
+The suspicious activity can be pretending to someone, voting on someone with no reason. 
 3. What evidence or observations can I share to help the village without revealing my role?
 4. How can I guide the discussion in a helpful direction based on what I know?
 5. If it's time to vote, who should I vote for and why, considering all the information available?
